@@ -1,0 +1,47 @@
+# fly.toml file generated for nodejs-proxy
+
+# App name (optional) needs to be changed if you have multiple apps
+app = "nodejs-proxy-lidaa"
+primary_region = "sin" # Replace with the region closest to you, e.g. ord
+kill_signal = "SIGINT"
+kill_timeout = "5s"
+
+# Docker image to use
+image = "flyio/node"
+
+# HTTP port
+[env]
+PORT = "7860"
+
+# UUID
+[env]
+UUID = "d4b85103-c1ec-40de-9dd7-58b94d477d15"
+
+# Command to start the app
+[cmd]
+# Start the proxy
+start = "nodejs-proxy"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 7860
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 7860
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "1s"
+    restart_limit = 0
