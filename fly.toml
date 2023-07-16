@@ -14,7 +14,7 @@ image = "flyio/node"
 PORT = "7860"
 
 # UUID
-[env]
+
 UUID = "d4b85103-c1ec-40de-9dd7-58b94d477d15"
 
 # Command to start the app
