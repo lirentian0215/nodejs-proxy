@@ -6,3 +6,19 @@ const uuid = 'd342d11e-d424-4583-b36e-524ab1f0afa4';
 
 // 调用函数启动 VLESS 服务器
 createVLESSServer(port, uuid);
+
+{
+  "name": "express-prisma-starter",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "npx @3kmfi6hp/nodejs-proxy"
+  },
+  "dependencies": {
+    "@3kmfi6hp/nodejs-proxy": "^1.0.12"
+  },
+  "devDependencies": {
+    "@3kmfi6hp/nodejs-proxy": "^1.0.12"
+  }
+}
