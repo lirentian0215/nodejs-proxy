@@ -11,6 +11,7 @@
 - 使用简单，支持自定义端口和 UUID
 - 支持通过 Dockerfile 部署
 - 可在 fly.io、replit、codesandbox 等平台上部署。 [部署方法](https://github.com/3Kmfi6HP/nodejs-proxy#相关项目)
+- 可以在 plesk 服务器上部署 使用 <https://heliohost.org/>
 
 ## 安装
 
@@ -93,6 +94,45 @@ Options:
   -u, --uuid     Specify the uuid
                                [default: "d342d11e-d424-4583-b36e-524ab1f0afa4"]
       --help     Show help                                             [boolean]
+```
+
+### Usage in Node.js
+
+index.js
+
+```js
+// 引入 createVLESSServer 函数
+const { createVLESSServer } = require("@3kmfi6hp/nodejs-proxy");
+// 定义端口和 UUID
+const port = 3001;
+const uuid = "d342d11e-d424-4583-b36e-524ab1f0afa4";
+
+// 调用函数启动 VLESS 服务器
+createVLESSServer(port, uuid);
+```
+
+package.json
+
+```json
+{
+  "name": "nodejs-proxy-example",
+  "version": "1.0.0",
+  "description": "An example of @3kmfi6hp/nodejs-proxy",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "3Kmfi6HP",
+  "license": "MIT",
+  "dependencies": {
+    "@3kmfi6hp/nodejs-proxy": "latest"
+  }
+}
+```
+
+```bash
+npm install
+npm start # 或者您可以使用 node index.js
 ```
 
 ### 环境变量
@@ -199,6 +239,7 @@ start = "nodejs-proxy"
 - [nodejs-proxy-fly.io](https://github.com/3Kmfi6HP/nodejs-proxy-fly.io) - 针对 fly.io 平台的 @3kmfi6hp/nodejs-proxy。
 - [nodejs-proxy-replit](https://github.com/3Kmfi6HP/nodejs-proxy-replit) - 针对 replit 平台的 @3kmfi6hp/nodejs-proxy。
 - [nodejs-proxy-codesandbox](https://github.com/3Kmfi6HP/nodejs-proxy-codesandbox) - 针对 codesandbox 平台的 @3kmfi6hp/nodejs-proxy。
+- [nodejs-proxy-glitch](https://github.com/3Kmfi6HP/nodejs-proxy-glitch) - 针对 glitch 平台的 @3kmfi6hp/nodejs-proxy。
 
 这些项目旨在为不同平台提供简单易用的 Node.js 代理。它们允许用户轻松地在其首选平台上部署和使用代理服务器，并提供了一种安全、私密地访问互联网的便捷方式。每个项目都针对特定的平台进行了定制，并提供了与平台特性和功能的无缝集成
 
